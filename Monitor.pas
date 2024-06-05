@@ -149,6 +149,7 @@ begin
     Events[1] := FShutdownHandle;
     while not Terminated do
     begin
+      FillChar(Buffer, BUFFER_SIZE, 0);
       if ReadDirectoryChangesW(FDirHandle, @Buffer[0], BUFFER_SIZE, FSubdirectories, GetNotifyMask, @BytesRead,
         @Overlap, nil) then
       begin
